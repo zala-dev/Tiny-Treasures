@@ -1,4 +1,4 @@
-export const products = [
+const products = [
   {
     name: "LEGO Classic Large Creative Brick Box",
     image: "/images/lego.jpg",
@@ -72,3 +72,5 @@ export const products = [
     numReviews: 14,
   },
 ];
+
+export default products;

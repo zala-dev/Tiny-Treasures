@@ -21,5 +21,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Database connected..`);
+  console.log(`Database connected on port: ${PORT}`);
 });
