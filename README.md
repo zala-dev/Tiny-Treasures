@@ -16,7 +16,11 @@ Tiny Treasures is a comprehensive full-stack application designed to offer paren
 
 # Application screenshots
 
-![TBA]()
+![](/public/images/ERD.png)
+
+# Entity Relationship Diagram
+
+![ERD](/public/images/ERD.png)
 
 # Technologies used
 
