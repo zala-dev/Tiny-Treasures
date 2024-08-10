@@ -20,7 +20,22 @@ Tiny Treasures is a comprehensive full-stack application designed to offer paren
 
 # Entity Relationship Diagram
 
-![ERD](public/images/ERD.png)
+User to Product: One-to-Many<br/>
+(A User can create many Products)
+
+User to Review: One-to-Many<br/>
+(A User can create many Reviews)
+
+User to Order: One-to-Many<br/>
+(A User can place many Orders)
+
+Product to Review: One-to-Many<br/>
+(A Product can have many Reviews)
+
+Order to Product: Many-to-One<br/>
+(An Order contains many Products, each Product can belong to multiple Orders)
+
+![](public/images/update-erd.png)
 
 # Technologies used
 
