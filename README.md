@@ -50,8 +50,6 @@ Order to Product: Many-to-One<br/>
 - Redux / Redux Toolkit (TBC)
 - Paypal / Stripe (TBC)
 
----
-
 # User story
 
 As a user,
@@ -69,8 +67,6 @@ As an admin,
 
 - I want to have a page on the client side where I can control product data, including adding, editing, updating, and deleting products, so that I can manage the inventory effectively.
 - I want to have pagination on the product management page so that I can easily navigate through a large number of products.
-
----
 
 # Future Enhancement
 
