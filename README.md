@@ -12,7 +12,7 @@ Tiny Treasures is a comprehensive full-stack application designed to offer paren
 
 # Wireframe
 
-![TBA]()
+![](public/images/wireframe.png)
 
 # Application screenshots
 
