@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     name: "LEGO Classic Large Creative Brick Box",
     image: "/images/lego.jpg",
     description:
@@ -12,6 +13,7 @@ const products = [
     numReviews: 35,
   },
   {
+    id: 2,
     name: "Fisher-Price Little People City Skyway",
     image: "/images/skyway.jpg",
     description:
@@ -24,6 +26,7 @@ const products = [
     numReviews: 28,
   },
   {
+    id: 3,
     name: "Melissa & Doug Wooden Train Set",
     image: "/images/melissa.jpg",
     description:
@@ -36,6 +39,7 @@ const products = [
     numReviews: 22,
   },
   {
+    id: 4,
     name: "Barbie Dreamhouse Dollhouse",
     image: "/images/barbiedreamhouse.jpg",
     description:
@@ -48,6 +52,7 @@ const products = [
     numReviews: 18,
   },
   {
+    id: 5,
     name: "VTech KidiZoom Camera",
     image: "/images/vtech.jpg",
     description:
@@ -60,6 +65,7 @@ const products = [
     numReviews: 30,
   },
   {
+    id: 6,
     name: "LeapFrog LeapPad Academy",
     image: "/images/leappad.jpg",
     description:
