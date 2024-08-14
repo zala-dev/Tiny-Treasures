@@ -2,7 +2,6 @@
   "name": "tiny-treasures",
   "version": "0.1.0",
   "type": "module",
-  "proxy": "http://localhost:5001",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
@@ -13,6 +12,7 @@
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
@@ -31,7 +31,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3000 react-scripts start",
     "server": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -60,5 +60,6 @@
   "devDependencies": {
     "ajv": "^8.17.1",
     "concurrently": "^8.2.2"
-  }
+  },
+  "proxy": "http://localhost:5003"
 }
