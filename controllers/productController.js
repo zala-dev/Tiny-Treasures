@@ -1,17 +1,32 @@
 import asyncHandler from "../middlewares/asyncHandler.js";
+import Product from "../models/productModel.js";
 
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  res.send("Get Products");
+  const products = await Product.find({});
+
+  if (!products) {
+    throw new Error("Products not found");
+  }
+
+  res.json(products);
 });
 
 // @desc    Get single product
 // @route   GET /api/product/:id
 // @access  Public
 const getSingleProduct = asyncHandler(async (req, res) => {
-  res.send("Get Single Product");
+  const { id: productId } = req.params;
+
+  const product = await Product.findById(productId);
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
+
+  res.json(product);
 });
 
 // @desc    Create a product
