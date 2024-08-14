@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Row,
   Col,
@@ -13,11 +13,19 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Rating from "../components/Rating";
 
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useGetProductDetailsQuery } from "../slices/productApiSlice";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../slices/cartSlice";
 
 const ProductDetailPage = () => {
   const { id: productId } = useParams();
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const [qty, setQty] = useState(1);
 
   const {
     data: product,
@@ -25,10 +33,10 @@ const ProductDetailPage = () => {
     error,
   } = useGetProductDetailsQuery(productId);
 
-  if (!product) {
-    return <div>Product not found</div>;
-  }
-
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, qty }));
+    navigate("/cart");
+  };
   return (
     <>
       <Link to="/" className="btn btn-light my-3">
@@ -86,7 +94,11 @@ const ProductDetailPage = () => {
                     <Row>
                       <Col>Qty</Col>
                       <Col>
-                        <Form.Control as="select">
+                        <Form.Control
+                          as="select"
+                          value={qty}
+                          onChange={(e) => setQty(Number(e.target.value))}
+                        >
                           {[...Array(product.countInStock).keys()].map((el) => (
                             <option key={el + 1} value={el + 1}>
                               {el + 1}
@@ -101,6 +113,7 @@ const ProductDetailPage = () => {
                   <Button
                     className="btn-block"
                     type="button"
+                    onClick={addToCartHandler}
                     disabled={product.countInStock === 0}
                   >
                     Add To Cart
