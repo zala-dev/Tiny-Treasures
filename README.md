@@ -47,7 +47,7 @@ Order to Product: Many-to-One<br/>
 - Bootstrap
 - JWT
 - MongoDB
-- Redux / Redux Toolkit (TBC)
+- Redux / Redux Toolkit
 - Paypal / Stripe (TBC)
 
 # User story

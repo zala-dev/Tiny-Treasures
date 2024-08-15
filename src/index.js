@@ -15,14 +15,14 @@ import App from "./App.js";
 
 import HomePage from "./pages/HomePage.jsx";
 import ProductDetailPage from "./pages/ProductDetailPage.jsx";
-import Cart from "./pages/Cart.jsx";
+import CartPage from "./pages/CartPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomePage />} />
       <Route path="/product/:id" element={<ProductDetailPage />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/cart" element={<CartPage />} />
     </Route>
   )
 );
