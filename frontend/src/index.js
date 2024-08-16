@@ -26,6 +26,8 @@ import ProductListPage from "./pages/admin/ProductListPage.jsx";
 import ProductEditPage from "./pages/admin/ProductEditPage.jsx";
 import UserListPage from "./pages/admin/UserListPage.jsx";
 import UserEditPage from "./pages/admin/UserEditPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+import PrivateRoute from "./components/AdminRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +37,13 @@ const router = createBrowserRouter(
       <Route path="/cart" element={<CartPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<UserRegisterPage />} />
+
+      {/* Registered users routes */}
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/profile" element={<ProfilePage />} />
+      </Route>
+
+      {/* Admin routes */}
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist" element={<OrderListPage />} />
         <Route path="/admin/productlist" element={<ProductListPage />} />

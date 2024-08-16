@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
 import Message from "../components/Message";
@@ -14,7 +14,6 @@ import {
 import { FaTrash } from "react-icons/fa";
 
 const CartPage = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
@@ -26,10 +25,6 @@ const CartPage = () => {
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
-  };
-
-  const checkoutHandler = () => {
-    navigate("/login?redirect=/shipping");
   };
 
   return (
@@ -97,12 +92,12 @@ const CartPage = () => {
             </ListGroup.Item>
             <ListGroup.Item>
               <Button
+                href="tel:000000000"
                 type="button"
                 className="btn-block"
                 disabled={cartItems.length === 0}
-                onClick={checkoutHandler}
               >
-                Proceed To Checkout
+                Call To Order
               </Button>
             </ListGroup.Item>
           </ListGroup>
