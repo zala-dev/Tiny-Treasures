@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App.js";
 
-import PrivateRoute from "./components/PrivateRoute.jsx";
+// import PrivateRoute from "./components/PrivateRoute.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 
 import HomePage from "./pages/HomePage.jsx";
@@ -21,7 +21,11 @@ import ProductDetailPage from "./pages/ProductDetailPage.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import UserRegisterPage from "./pages/UserRegisterPage.jsx";
-import OrderListPage from "./pages/OrderListPage.jsx";
+import OrderListPage from "./pages/admin/OrderListPage.jsx";
+import ProductListPage from "./pages/admin/ProductListPage.jsx";
+import ProductEditPage from "./pages/admin/ProductEditPage.jsx";
+import UserListPage from "./pages/admin/UserListPage.jsx";
+import UserEditPage from "./pages/admin/UserEditPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -33,6 +37,10 @@ const router = createBrowserRouter(
       <Route path="/register" element={<UserRegisterPage />} />
       <Route path="" element={<AdminRoute />}>
         <Route path="/admin/orderlist" element={<OrderListPage />} />
+        <Route path="/admin/productlist" element={<ProductListPage />} />
+        <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
+        <Route path="/admin/userlist" element={<UserListPage />} />
+        <Route path="/admin/userlist/:id/edit" element={<UserEditPage />} />
       </Route>
     </Route>
   )

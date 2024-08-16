@@ -2,8 +2,8 @@ import dotenv from "dotenv";
 import connectDB from "./config/database.js";
 
 // mock data
-import mockUserData from "./src/mock-data/usersMockData.js";
-import mockProductData from "./src/mock-data/productsMockData.js";
+import mockUserData from "./mock-data/usersMockData.js";
+import mockProductData from "./mock-data/productsMockData.js";
 
 // mongoose models
 import User from "./models/userModel.js";

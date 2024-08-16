@@ -1,8 +1,10 @@
+import path from "path";
 import dotenv from "dotenv";
 import connectDB from "./config/database.js";
 import express from "express";
-import cors from "cors";
+import cookieParser from "cookie-parser";
 import morgan from "morgan";
+
 import {
   notFoundMiddleware,
   errorHandlerMiddleware,
@@ -10,7 +12,7 @@ import {
 
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import cookieParser from "cookie-parser";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 const app = express();
 
@@ -21,13 +23,16 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/upload", uploadRoutes);
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
