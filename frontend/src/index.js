@@ -27,7 +27,7 @@ import ProductEditPage from "./pages/admin/ProductEditPage.jsx";
 import UserListPage from "./pages/admin/UserListPage.jsx";
 import UserEditPage from "./pages/admin/UserEditPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
-import PrivateRoute from "./components/AdminRoute.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
