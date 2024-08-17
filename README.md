@@ -59,6 +59,7 @@ As a user,
 - I want to be able to log in using my email address and password so that I can access my account and manage my orders.
 - I want to be able to add items to my cart so that I can purchase them later.
 - I want to see the items in my cart so that I can review my selections before checking out.
+- I want to search products from the homepage so I can easily find the product.
 
 As an admin,
 
