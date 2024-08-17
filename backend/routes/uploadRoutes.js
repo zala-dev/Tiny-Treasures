@@ -16,27 +16,38 @@ const storage = multer.diskStorage({
   },
 });
 
-function checkFileType(file, cb) {
-  const filetypes = /jpg|jpeg|png/;
+// File filter function
+function fileFilter(req, file, cb) {
+  const filetypes = /jpe?g|png|webp/;
+  const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
+
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
+  const mimetype = mimetypes.test(file.mimetype);
+
   if (extname && mimetype) {
-    return cb(null, true);
+    cb(null, true);
   } else {
-    cb("Image only!");
+    cb(new Error("Images only!"), false);
   }
 }
 
+// Multer setup
 const upload = multer({
   storage,
-  checkFileType,
+  fileFilter,
+  limits: { fileSize: 5 * 1024 * 1024 }, // File size limit of 5MB
 });
 
+// Single image upload middleware
 const uploadSingleImage = upload.single("image");
 
 router.post("/", (req, res) => {
   uploadSingleImage(req, res, function (err) {
     if (err) {
+      if (err.code === "LIMIT_FILE_SIZE") {
+        // Specific error message for file size limit
+        return res.status(400).send({ message: "File size exceeds 5 MB." });
+      }
       return res.status(400).send({ message: err.message });
     }
 

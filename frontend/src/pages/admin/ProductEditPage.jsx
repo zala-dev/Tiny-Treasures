@@ -20,6 +20,8 @@ const ProductEditPage = () => {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
+  const [imageValid, setImageValid] = useState(true);
+  const [imageSizeValid, setImageSizeValid] = useState(true);
 
   const {
     data: product,
@@ -70,14 +72,38 @@ const ProductEditPage = () => {
   }, [product]);
 
   const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
     const formData = new FormData();
-    formData.append("image", e.target.files[0]);
+    formData.append("image", file);
+
+    // Check file size (5 MB limit)
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error("File size exceeds 5 MB. Please upload a smaller image.");
+      setImageSizeValid(false);
+      return;
+    } else {
+      setImageSizeValid(true);
+    }
+
+    // basic validation (e.g., file type)
+    const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+    if (!allowedTypes.includes(file.type)) {
+      toast.error(
+        "Invalid file type. Please upload a JPG, PNG, or WEBP image."
+      );
+      setImageValid(false);
+      return;
+    } else {
+      setImageValid(true);
+    }
+
     try {
       const res = await uploadProductImage(formData).unwrap();
       toast.success(res.message);
       setImage(res.image);
     } catch (err) {
       toast.error(err?.data?.message || err.error);
+      setImageValid(false);
     }
   };
 
@@ -146,7 +172,7 @@ const ProductEditPage = () => {
               <Form.Control
                 type="number"
                 placeholder="Enter countInStock"
-                value={countInStock}
+                value={countInStock < 0 ? 0 : countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
@@ -174,7 +200,8 @@ const ProductEditPage = () => {
             <Button
               type="submit"
               variant="primary"
-              style={{ marginTop: "1rem" }}
+              style={{ marginTop: "1rem", cursor: "pointer" }}
+              disabled={!imageValid || !imageSizeValid}
             >
               Update
             </Button>
