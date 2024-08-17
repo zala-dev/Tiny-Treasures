@@ -35,7 +35,7 @@ Product to Review: One-to-Many<br/>
 Order to Product: Many-to-One<br/>
 (An Order contains many Products, each Product can belong to multiple Orders)
 
-![](public/images/update-erd.png)
+![](frontend/public/images/update-erd.png)
 
 # Technologies used
 
