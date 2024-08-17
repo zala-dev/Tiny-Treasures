@@ -136,7 +136,7 @@ const ProductEditPage = () => {
               <Form.Control
                 type="number"
                 placeholder="Enter price"
-                value={price}
+                value={price < 0 ? 0 : price}
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
             </Form.Group>
