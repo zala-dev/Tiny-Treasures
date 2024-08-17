@@ -3,13 +3,23 @@ import { Col, Row } from "react-bootstrap";
 import Product from "../components/Product";
 import Loader from "../components/Loader.jsx";
 import Message from "../components/Message.jsx";
-import { useGetProductsQuery } from "../slices/productApiSlice";
+import TopProducts from "../components/TopProducts.jsx";
+import { useParams, Link } from "react-router-dom";
+import { useGetProductsQuery } from "../slices/productApiSlice.js";
 
 const HomePage = () => {
-  const { data: products, isLoading, error } = useGetProductsQuery();
+  const { keyword } = useParams();
+  const { data: products, isLoading, error } = useGetProductsQuery({ keyword });
 
   return (
     <>
+      {!keyword ? (
+        <TopProducts />
+      ) : (
+        <Link to="/" className="btn btn-light">
+          Go Back
+        </Link>
+      )}
       {isLoading ? (
         <Loader />
       ) : error ? (

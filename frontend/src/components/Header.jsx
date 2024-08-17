@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../slices/usersApiSlice.js";
 import { logout } from "../slices/authSlice.js";
 import { resetCart } from "../slices/cartSlice.js";
+import SearchProduct from "./SearchProduct.jsx";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -29,14 +30,21 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
+      <Navbar
+        className="nav-bg"
+        bg="dark"
+        variant="dark"
+        expand="md"
+        collapseOnSelect
+      >
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>TinyTreasures</Navbar.Brand>
+            <Navbar.Brand>Tiny Treasures</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+              <SearchProduct />
               <Nav.Link as={Link} to="/cart">
                 <FaShoppingCart /> Cart
                 {cartItems.length > 0 && (

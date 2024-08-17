@@ -22,13 +22,6 @@ h2 {
   object-fit: cover;
 }
 
-.product-title {
-  height: 2.5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .rating span {
   margin: 0.1rem;
 }
@@ -41,4 +34,25 @@ h2 {
   font-size: 0.8rem;
   font-weight: 600;
   padding-left: 0.5rem;
+}
+
+.product-title {
+  height: 2.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table td,
+table th {
+  text-align: center;
+}
+
+.carousel-caption {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
