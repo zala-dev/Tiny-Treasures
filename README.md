@@ -12,11 +12,11 @@ Tiny Treasures is a comprehensive full-stack application designed to offer paren
 
 # Wireframe
 
-![](public/images/wireframe.png)
+![](frontend/public/images/wireframe.png)
 
 # Application screenshots
 
-![](public/images/appscreenshots.png)
+![](frontend/public/images/appscreenshots.png)
 
 # Entity Relationship Diagram
 
