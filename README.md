@@ -16,7 +16,7 @@ Tiny Treasures is a comprehensive full-stack application designed to offer paren
 
 # Application screenshots
 
-![]()
+![](public/images/appscreenshots.png)
 
 # Entity Relationship Diagram
 
