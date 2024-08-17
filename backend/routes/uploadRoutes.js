@@ -16,7 +16,6 @@ const storage = multer.diskStorage({
   },
 });
 
-// File filter function
 function fileFilter(req, file, cb) {
   const filetypes = /jpe?g|png|webp/;
   const mimetypes = /image\/jpe?g|image\/png|image\/webp/;
@@ -31,23 +30,12 @@ function fileFilter(req, file, cb) {
   }
 }
 
-// Multer setup
-const upload = multer({
-  storage,
-  fileFilter,
-  limits: { fileSize: 5 * 1024 * 1024 }, // File size limit of 5MB
-});
-
-// Single image upload middleware
+const upload = multer({ storage, fileFilter });
 const uploadSingleImage = upload.single("image");
 
 router.post("/", (req, res) => {
   uploadSingleImage(req, res, function (err) {
     if (err) {
-      if (err.code === "LIMIT_FILE_SIZE") {
-        // Specific error message for file size limit
-        return res.status(400).send({ message: "File size exceeds 5 MB." });
-      }
       return res.status(400).send({ message: err.message });
     }
 
