@@ -9,7 +9,7 @@ import { useGetProductsQuery } from "../slices/productApiSlice.js";
 
 const HomePage = () => {
   const { keyword } = useParams();
-  const { data: products, isLoading, error } = useGetProductsQuery({ keyword });
+  const { data: products, isLoading, error } = useGetProductsQuery(keyword);
 
   return (
     <>
